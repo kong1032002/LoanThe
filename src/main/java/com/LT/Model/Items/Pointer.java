@@ -5,7 +5,6 @@ import javafx.scene.paint.Color;
 
 public class Pointer extends Item {
 
-    boolean selected = false;
 
     public Pointer(int col, int row) {
         this.col = col;
@@ -14,12 +13,9 @@ public class Pointer extends Item {
         x = col * 34;
     }
 
+    @Override
     public void changeStatus() {
         selected = !selected;
-    }
-
-    public boolean isSelected() {
-        return selected;
     }
 
     @Override
@@ -39,13 +35,11 @@ public class Pointer extends Item {
         } else {
             graphicsContext.setFill(Color.CORAL);
         }
-        graphicsContext.fillRect(x, 8 * 34 - y, 34, 34);
-
+        graphicsContext.fillRect(x, 7 * 34 - y, 34, 34);
     }
 
     @Override
     public boolean update() {
-        System.out.println(row + " " + col);
         if (row * 34 == y && col * 34 == x) {
             return false;
         }

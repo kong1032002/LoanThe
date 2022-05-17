@@ -5,12 +5,13 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 
-public abstract class Item implements Cloneable{
+public abstract class Item implements Cloneable {
     private Sprite sprite;
     protected double x;
     protected double y;
     protected int row;
     protected int col;
+    protected boolean selected;
     private int animate = 0;
     private int index = 0;
 
@@ -62,7 +63,7 @@ public abstract class Item implements Cloneable{
     }
 
     public void render(GraphicsContext graphicsContext) {
-        graphicsContext.drawImage(getFxImage(), x, 8 * 34 - y);
+        graphicsContext.drawImage(getFxImage(), x, 7 * 34 - y);
     }
 
     public Sprite getSprite() {
@@ -119,6 +120,14 @@ public abstract class Item implements Cloneable{
 
     public void setCol(int col) {
         this.col = col;
+    }
+
+    public void changeStatus() {
+        selected = true;
+    }
+
+    public boolean isSelected() {
+        return selected;
     }
 
     @Override
