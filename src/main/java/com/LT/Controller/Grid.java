@@ -23,6 +23,7 @@ public class Grid {
                         mark(i, j);
                 }
             }
+            removeIcon();
         }
     }
 
@@ -119,6 +120,10 @@ public class Grid {
         return false;
     }
 
+    public Pointer getPointer() {
+        return pointer;
+    }
+
     public void swap(int row, int col, String dir) {
         switch (dir) {
             case "DOWN" -> {
@@ -163,5 +168,15 @@ public class Grid {
 
     public boolean isNullItem(int row, int col) {
         return (itemsGrid[row][col] == null);
+    }
+
+    private void removeIcon() {
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                if (itemsGrid[i][j].isSelected()) {
+                    itemsGrid[i][j] = null;
+                }
+            }
+        }
     }
 }

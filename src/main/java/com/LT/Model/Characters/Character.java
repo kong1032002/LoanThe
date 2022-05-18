@@ -14,13 +14,31 @@ public class Character {
 
     private int maxHp;
     private int maxMp;
+    private int maxFp;
+    private int maxHgP;
     private int criticalChange;
     private int dodgeChange;
-    private int defense;
+    private int def;
     private int criticalDmg;
     private int atk;
 
     private String name;
+
+    public int getMaxFp() {
+        return maxFp;
+    }
+
+    public void setMaxFp(int maxFp) {
+        this.maxFp = maxFp;
+    }
+
+    public int getMaxHgP() {
+        return maxHgP;
+    }
+
+    public void setMaxHgP(int maxHgP) {
+        this.maxHgP = maxHgP;
+    }
 
     public int getLight() {
         return light;
@@ -126,12 +144,12 @@ public class Character {
         this.dodgeChange = dodgeChange;
     }
 
-    public int getDefense() {
-        return defense;
+    public int getDef() {
+        return def;
     }
 
-    public void setDefense(int defense) {
-        this.defense = defense;
+    public void setDef(int def) {
+        this.def = def;
     }
 
     public int getCriticalDmg() {
@@ -156,5 +174,9 @@ public class Character {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public double takeDmg(int enemyAtk) {
+        return 600.0 / (600 + def) * enemyAtk;
     }
 }
